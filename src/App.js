@@ -11,10 +11,12 @@ import {
 import Container  from "@material-ui/core/Container";
 import MaterialTable from 'material-table';
 import BorderColorIcon from '@material-ui/icons/BorderColor';
+import Typography from '@material-ui/core/Typography';
 
 import Header from './Components/Header';
 import UserInput from './Components/UserInput';
 import AddReviews from './Components/Pages/AddReviews';
+import ShowReviews from './Components/Pages/ShowReviews';
 
 const QUERY_FIND_FILMS = gql`
   query($filmName: String) {
@@ -105,10 +107,10 @@ function App() {
             <br></br>
             <Container maxWidth="xs" style={ getContainerStyle }>
 
-              <h3 style={{ marginTop: 50 }}>
+              <Typography variant="h5" style={{ marginTop: 50, marginBottom: 50 }}>
                 Enter a film name or phrase:
-              </h3>
-
+              </Typography>
+          
               <UserInput handleInputChange={ handleInputChange } handleSubmit={ handleSubmit } />
 
             </Container>
@@ -149,6 +151,9 @@ function App() {
         {/* we need some dynamic part in our URL here */}
         <Route path="/add-reviews/:moviename">
           <AddReviews />
+        </Route>
+        <Route path="/reviews">
+          <ShowReviews />
         </Route>
       </div>
       </Router>

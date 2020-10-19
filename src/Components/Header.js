@@ -9,6 +9,7 @@ function Header() {
           <Toolbar className="header-toolbar">
             <h2>Film Information</h2>
             <Link id="navlink" to="/">Home</Link>
+            <Link id="navlink" to="/reviews">Reviews</Link>
           </Toolbar>
         </AppBar>
     )

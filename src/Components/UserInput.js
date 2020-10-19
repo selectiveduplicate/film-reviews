@@ -6,7 +6,7 @@ function UserInput({handleInputChange, handleSubmit}) {
 
   return (
     <form>
-      <Input placeholder="Film name" onChange={ handleInputChange }>
+      <Input placeholder="Search term..." onChange={ handleInputChange }>
       </Input>
       <Button type="submit" variant="contained" onClick={ handleSubmit } color="primary" style={{ marginLeft: 20 }}>
         Submit
