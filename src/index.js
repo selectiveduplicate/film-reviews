@@ -1,15 +1,11 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import App from './App';
-import { 
-  ApolloClient, 
-  ApolloProvider,
-  InMemoryCache 
-} from '@apollo/client';
-import './index.css';
+import React from "react";
+import ReactDOM from "react-dom";
+import App from "./App";
+import { ApolloClient, ApolloProvider, InMemoryCache } from "@apollo/client";
+import "./index.css";
 
 const APOLLO_CLIENT = new ApolloClient({
-  uri: "http://localhost:8080/graphql",
+  uri: "https://ablaze-scale.us-west-2.aws.cloud.dgraph.io/graphql",
   cache: new InMemoryCache({
     typePolicies: {
       Query: {
@@ -22,7 +18,7 @@ const APOLLO_CLIENT = new ApolloClient({
         },
       },
     },
-  })
+  }),
 });
 
 ReactDOM.render(
@@ -31,5 +27,5 @@ ReactDOM.render(
       <App />
     </ApolloProvider>
   </React.StrictMode>,
-  document.getElementById('root')
+  document.getElementById("root")
 );

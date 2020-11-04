@@ -1,0 +1,49 @@
+type User {
+  username: String! @id
+  posted_reviews: [Review] @hasInverse(field: posted_by)
+}
+
+type Review {
+  id: ID!
+  text: String!
+  rating: Int!
+  posted_by: User!
+  reviewed_film: FilmData @hasInverse(field: reviews)
+}
+
+type Film @remote {
+  id: ID!
+  name: String!
+  directed_by: [Director!]!
+}
+
+type FilmData {
+  id: String! @id
+  reviews: [Review]
+  data: Film @custom(
+      http: {
+        url: "https://play.dgraph.io/graphql"
+        method: "POST"
+        forwardHeaders: ["Content-Type"]
+        graphql: "query($id: ID!) { getFilm(id: $id) }"
+        skipIntrospection: true
+      }
+    )
+}
+
+type Director @remote {
+  name: String!
+  id: ID!
+}
+
+type Query {
+  getMovieNames(name: String): [Film] @custom(
+      http: {
+        url: "https://play.dgraph.io/graphql"
+        method: "POST"
+        forwardHeaders: ["Content-Type"]
+        graphql: "query($name: String!) { queryFilm(filter: {name: {alloftext: $name}}) }"
+        skipIntrospection: true
+      }
+    )
+}
