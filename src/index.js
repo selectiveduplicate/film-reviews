@@ -5,7 +5,7 @@ import { ApolloClient, ApolloProvider, InMemoryCache } from "@apollo/client";
 import "./index.css";
 
 const APOLLO_CLIENT = new ApolloClient({
-  uri: "https://ablaze-scale.us-west-2.aws.cloud.dgraph.io/graphql",
+  uri: "https://hip-spring.us-west-2.aws.cloud.dgraph.io/graphql",
   cache: new InMemoryCache({
     typePolicies: {
       Query: {

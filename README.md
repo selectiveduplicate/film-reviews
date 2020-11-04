@@ -5,8 +5,18 @@ Building on the [previous app](https://github.com/selectiveduplicate/graphql-fil
 I've walked through the process of building both apps on DEV which you can find on my account page [here](https://dev.to/selectiveduplicate).
 
 ## Tools used
+----
 * [Slash GraphQL](https://dgraph.io/slash-graphql) as backend
 * [Apollo](https://www.apollographql.com/) as GraphQL client
 * [React](https://reactjs.org/) and [Material-UI](https://material-ui.com/) for the UI
 
 Favicon from the awesome [Feather](https://feathericons.com/).
+
+## How to run
+----
+First, change the `uri` of `APOLLO_CLIENT` in `src/index.js` to your own endpoint that has been deployed with `schema.graphql`. The current `uri` won't work. Then run:
+
+```shell
+npm install
+npm start
+```
