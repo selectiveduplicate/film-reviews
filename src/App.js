@@ -174,7 +174,7 @@ function App() {
           )}
         ></Route>
         {/* we need some dynamic part in our URL here */}
-        <Route path="/add-reviews/:movieid">
+        <Route path="/add-reviews/:movieid/:moviename">
           <AddReviews />
         </Route>
         <Route path="/reviews">

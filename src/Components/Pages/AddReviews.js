@@ -91,13 +91,9 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function AddReviews() {
-  // get the movie ID from URL params
-  var { movieid } = useParams();
-  // we also need the movie name
-  let pathname = window.location.pathname;
-  let nameRegex = /\/([^\/]*)\/?$/g;
-  let match = pathname.match(nameRegex);
-  let movieName = match.toString().slice(1).split("-").join(" ");
+  // get the movie ID and name from URL params
+  let { movieid, moviename } = useParams();
+  let movieName = moviename.split("-").join(" ");
 
   const styleClass = useStyles();
   const [reviewText, setReviewText] = useState("");
@@ -207,7 +203,6 @@ function AddReviews() {
             <Button
               type="submit"
               variant="contained"
-              /* onClick={ handleSubmit } */
               color="primary"
               style={{ marginTop: 20 }}
             >
