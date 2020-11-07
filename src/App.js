@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useQuery, gql } from "@apollo/client";
-import { BrowserRouter as Router, useHistory, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 import Container from "@material-ui/core/Container";
 import MaterialTable from "material-table";
 import BorderColorIcon from "@material-ui/icons/BorderColor";
@@ -30,8 +30,6 @@ const getContainerStyle = {
 function App() {
   const [nameFilter, setNameFilter] = useState("");
   const [dataForRender, setDataForRender] = useState([]);
-
-  const history = useHistory();
 
   // send query with variables as per user provided
   const { loading, error, data, refetch } = useQuery(QUERY_FIND_FILMS, {
